@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2 style="text-align: center">Форма редактирования автомобиля</h2>
+<form method="post">
+    {% csrf_token %}
+    <p>Марка авто: <input type="text" value="{{ car.brand }}" name="brand"></p>
+    <p>Тип двигателя: <input type="text" value="{{ car.engine }}" name="engine"></p>
+    <p>Год сборки: <input type="text" value="{{ car.year }}" name="year"></p>
+    <p>Цвет кузова: <input type="text" value="{{ car.color }}" name="color"></p>
+    <button>Изменить</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+  <tbody>
+    <tr>
+      <th>Бренд</th>
+      <th>Тип двигателя</th>
+      <th>Год сборки</th>
+      <th>Цвет кузова</th>
+      <th>Концерн</th>
+      <th>Автосалон</th>
+    </tr>
+    {% for i in cars %}
+    <tr>
+      <td>{{ i.brand }}</td>
+      <td>{{ i.engine }}</td>
+      <td>{{ i.year }}</td>
+      <td>{{ i.color }}</td>
+      <td>{{ i.concern }}</td>
+      {% for s in i.showroom.all %}
+          <td>{{ s }}</td>
+      {% endfor %}
+      <td><a href="{% url 'crud:form_edit' i.id %}" class="btn btn-primary"><button>Изменить</button></a></td>
+      <td><a href="{% url 'crud:form_delete' i.id %}" class="btn btn-primary"><button>Удалить</button></a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a href="{% url 'crud:form_new' %}" class="btn btn-primary"><button>Создать</button></a>
+</body>
+</html>

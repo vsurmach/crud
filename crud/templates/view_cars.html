@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+  <tbody>
+    <tr>
+      <th>Бренд</th>
+      <th>Тип двигателя</th>
+      <th>Год сборки</th>
+      <th>Цвет кузова</th>
+    </tr>
+    {% for i in cars %}
+    <tr>
+      <td>{{ i.brand }}</td>
+      <td>{{ i.engine }}</td>
+      <td>{{ i.year }}</td>
+      <td>{{ i.color }}</td>
+      <td><a href="{% url 'crud:edit_car' i.pk %}"><button>Обновить</button></a></td>
+      <td><a href="{% url 'crud:delete_car' i.pk %}"><button>Удалить</button></a></td>
+    </tr>
+  </tbody>
+    {% endfor %}
+</table>
+<a href="{% url 'crud:new_car' %}" class="btn btn-primary"><button>Создать</button></a>
+</body>
+</html>
